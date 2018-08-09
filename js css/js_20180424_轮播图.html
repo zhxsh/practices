@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>轮播图</title>
+    <style>
+        .banner{
+            width: 400px;
+            height: 200px;
+            border: 2px solid gray;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        ul{
+            list-style: none;
+            width: 2400px;
+            height: 200px;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .banner .img li{
+            /* width: 400px;
+            height: 200px; */
+            /* background-size: 100% 100%; */
+            /* position: absolute;
+            left: 0;
+            top: 0;
+            visibility: hidden; */
+            float: left;
+        }
+        .banner .img li img {
+            width: 400px;
+            height: 200px;
+            background-size: 100% 100%;
+        }
+        .circles{
+            width: 85px;
+            margin: 0 auto;
+            height: 20px;
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .circle{
+            width: 10px;
+            height: 10px;
+            border-radius: 100%;
+            background:white;
+            position: absolute;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <ul class="img">
+            <li><img src="images/1.jpg" alt=""></li>
+            <li><img src="images/2.png" alt=""></li>
+            <li><img src="images/3.png" alt=""></li>
+            <li><img src="images/4.jpg" alt=""></li>
+            <li><img src="images/5.jpg" alt=""></li>
+            <li><img src="images/6.jpg" alt=""></li>
+        </ul>
+        <div class="circles">
+            <span class="circle" id="circles" data-num="1"></span>
+            <span class="circle" style="left: 15px;" data-num="2"></span>
+            <span class="circle" style="left: 30px;" data-num="3"></span>
+            <span class="circle" style="left: 45px;" data-num="4"></span>
+            <span class="circle" style="left: 60px;" data-num="5"></span>
+            <span class="circle" style="left: 75px;" data-num="6"></span>
+        </div>
+    </div>
+
+    <script>
+        var circles = document.getElementsByClassName('circle');
+        var imgs = document.getElementsByClassName('img');
+        var showNum = 0;
+        var timer;
+        
+        for(let i=0;i<circles.length;i++){
+            var circle = circles[i];
+            circle.addEventListener('click',function(){
+                // for(let j=0;j<imgs[0].childElementCount;j++){
+                //     imgs[0].children[j].children[0].style.visibility = 'hidden';
+                // }
+                showNum = parseInt(this.getAttribute('data-num'))-1
+                imgs[0].style.left = (-showNum*400 + 'px');
+                // imgs[0].children[showNum].children[0].style.visibility = 'visible';
+                clearInterval(timer);
+                timer = setInterval(function(){
+                    showNum++;
+                    if(showNum>5){
+                        showNum = 0;
+                    }
+                    // imgs[0].style.left = (-showNum*400 + 'px');
+                    animate(imgs[0],-showNum*400)
+                    // for(let j=0;j<imgs[0].childElementCount;j++){
+                    //     imgs[0].children[j].children[0].style.visibility = 'hidden';
+                    // }
+                    // imgs[0].children[showNum].children[0].style.visibility = 'visible';
+                },2000)
+            },false);
+        }
+        function change(i){
+            console.log(1+i)
+        }
+        function animate(target,leftOffset){
+            var curOffset = target.offsetLeft;
+            var perOffset = (leftOffset-curOffset)/60;
+            var timerAnimate = setInterval(function(){
+                curOffset += perOffset;
+                if(curOffset > leftOffset){
+                    target.style.left = curOffset + 'px';
+                }
+                else{
+                    target.style.left = leftOffset + 'px';
+                    clearInterval(timerAnimate)
+                }
+            },13.32)
+            // console.log('name:'+target.tagName+' '+leftOffset);
+        }
+
+        var s = imgs[0].children[0]
+        // imgs[0].children[0].children[0].style.visibility = 'visible';
+        // imgs[0].children[showNum].children[0].style.display = 'block';
+
+        timer = setInterval(function(){
+            showNum++;
+            if(showNum>5){
+                showNum = 0;
+            }
+            // for(let j=0;j<imgs[0].childElementCount;j++){
+            //     imgs[0].children[j].children[0].style.visibility = 'hidden';
+            // }
+
+            var as = imgs[0]
+            animate(imgs[0],-showNum*400)
+            // imgs[0].style.left = (-showNum*400 + 'px');
+        },2000)
+    </script>
+</body>
+</html>

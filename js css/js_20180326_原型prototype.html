@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS 原型</title>
+</head>
+<body>
+    <!-- JS 高级程序设计 6.2原型测试 -->
+
+    <script type="text/javascript">
+        function Person(){
+        }
+
+        var friend = new Person();
+        Person.prototype = {
+            constructor: Person,
+            name: "Nicolos",
+            age: "20",
+            sayName: function(){
+                alert(this.name);
+            }
+        };
+
+        // friend.sayName();           //friend.sayName is not a function
+
+        // var friend = new Person();
+        // friend.sayName();           //正常
+
+
+        function Child(){
+
+        }
+        Child.prototype = new Person();
+        var jack = new Child();
+        console.log(jack instanceof Person);
+
+        function SuperType(){
+            this.property = 1;
+        }
+
+        function SubType(){
+            this.subProperty = 2;
+        }
+        SubType.prototype = new SuperType();
+
+        var instance = new SubType();
+        console.log(instance.subProperty);  //2
+        console.log(instance.property);     //1
+    </script>
+</body>
+</html>

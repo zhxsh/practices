@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>测试this</title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+	var name = "tom shark";
+
+	var object = {
+		name: "my object",
+		getName: function(){
+			return function(){
+				return this.name;
+			}
+		}
+	};
+
+	console.log(object.getName());
+
+	//全局函數中this的属性是否等于window的属性
+
+	function Point( x, y){
+		this.x = x
+		this.y = y
+	}
+
+	var p = new Point(2,3);
+	console.log(p.x)		//2  	window.x = undefined
+	Point(3,4)
+	console.log(window.x)	//		window.x = 3
+
+	//测试不用var声明的变量的作用域
+	function test(){
+		a = 0
+	}
+	test()
+	console.log('a:'+a)
+</script>
+</body>
+</html>

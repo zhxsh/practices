@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>JS浏览器设置cookie</title>
+		<script type="text/javascript">
+    		/*设置cookie
+            @expireTime 多少秒
+            */
+            var setCookie = function (name, value, expiredTime) {
+                var date = new Date();
+                date.setSeconds(date.getDate() + expiredTime);
+                expiredTime = (expiredTime == null || expiredTime) ? "" : ";expires=" + date.toUTCString();
+                document.cookie = name + "=" + escape(value) + expiredTime + ";path=/";
+            }
+            //获取cookie
+            var getCookie = function (name) {
+                if (document.cookie.length > 0) {
+                    start = document.cookie.indexOf(name + "=") + name.length + 1;
+                    if (start != -1) {
+                        end = document.cookie.indexOf(";", start);
+                        if (end == -1)
+                            end = document.cookie.length;
+                        return unescape(document.cookie.substring(start, end));
+                    }
+                }
+                return "";
+            }
+            var delCookie = function (name) {
+                var result = this.getCookie(name);
+                if (result) {
+                    var exp = new Date();
+                    exp.setTime(exp.getDate() - 1);
+                    document.cookie = name + "=" + result + ";expires=" + exp.toGMTString() + ";path=/";
+                }
+            }
+
+            var sets = function(){
+            	setCookie('name','Jack Ma',600);
+            	setCookie('sex','Boy',600);
+            }
+            function get(){
+            	document.getElementById("result").value = getCookie("name");
+            }
+		</script>
+	</head>
+
+	<body>
+		<button onclick="sets()">设置cookie</button>
+		<button>获取cookie</button><input type="text" id="result"/>
+		<button>删除cookie</button>
+	</body>
+
+
+</html>

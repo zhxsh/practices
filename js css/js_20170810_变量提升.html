@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Xmind 题</title>
+		<style type="text/css">
+			html,body{
+				width: 100%;
+				height: 100%;
+			    margin: 0;
+			}
+			.div1{
+				width: 100%;
+				height: 100%;
+			}
+			.red{
+				color: red;
+			}
+			.blue{
+				color: blue;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="div1">
+			<p class="red blue" id="test">文字</p>
+		</div>
+
+	</body>
+
+	<script type="text/javascript">
+		var log = console.log.bind(console)
+
+		function fn(a){
+			log(a)		//function a(){}
+			var a = 2
+			log(a)		//2
+			function a(){}
+			log(a)		//2
+		}
+
+		fn(1)
+
+
+		function User(name,hashPassword){
+			this.name = name
+			this.hashPassword = hashPassword
+		}
+		var aUser = User(name,'hashPassword');	//hashPassword is not defined    改成User(name,'hashPassword')   ？
+
+		//  this此时指的是 window，window有name属性，为""
+
+		// function Person(name,password){
+		//     var a = new Object()
+		//     a.name = name;
+		//     a.password= password;
+		//     return a
+		// }
+		// var aPerson = Person("ass",1);
+		
+		log("test getId");
+		var getId = document.getElementById;
+		// getId("test");
+		// 这是因为document.getElementById方法的内部实现需要用到this，这个this本来被期望指向document，当getElementById方法作为document对象的属性被调用时，方法内部的this确实指向document。但当用getId来引用document.getElementById之后，再调用getId，此时就成了普通函数调用，函数内部的this指向了window，而不是document
+		// getId.call(document,"test");
+
+		// var getId = document.getElementById.bind(document);
+
+
+		var z = 10;
+		function foo(){
+			console.log(z);		//10
+		}
+		foo();
+
+		(function(){
+			var z = 20;
+			foo();				//10
+		})();
+
+		(function(funArg){
+			var z = 30;
+			funArg();			//10
+		})(foo);
+
+		
+		(function(){
+			var z = 20;
+			foo.call(this);				//10
+		})();
+	</script>
+</html>

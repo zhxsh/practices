@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>非Flex布局下div内容超过高度后是否隐藏</title>
+</head>
+<body>
+    <div style="height: 300px;width: 300px;margin: 0 auto;border: 1px solid olivedrab;display: flex;">
+        <div style="width: 100%;height: 40px;background: olive;color: oldlace;overflow: hidden;">
+            撒旦所大所多
+            <!-- 撒旦所大所多撒旦所大所多撒旦所大所多撒旦所大所多撒旦所大所多撒旦所大所多撒旦所大所多撒旦所大所多撒旦所大所多撒旦所大所多撒旦所大所多撒旦所大所多撒旦所大所多撒旦所大所多 -->
+            <span>
+            <a>优选服务后台界面</a>
+            <a>优选服务后台界面</a>
+            <a>优选服务后台界面</a>
+            <a>优选服务后台界面</a>
+            <a>优选服务后台界面</a>
+            <a>优选服务后台界面</a>
+            <a>优选服务后台界面</a>
+        </span>
+        </div>
+
+        <!-- 和flex无关，与原来span便签没加display:inline-block;有关 -->
+    </div>
+</body>
+</html>

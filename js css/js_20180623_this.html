@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>测试this</title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+	var name = "tom shark";
+
+	var object = {
+		name: "my object",
+		getName: function(){
+			return function(){
+				return this.name;
+			}
+		}
+	};
+
+	console.log(object.getName());
+
+	//全局函數中this的属性是否等于window的属性
+
+	function Point( x, y){
+		this.x = x
+		this.y = y
+	}
+
+	var p = new Point(2,3);
+	console.log(p.x)		//2  	window.x = undefined
+	Point(3,4)
+	console.log(window.x)	//		window.x = 3
+
+	//测试不用var声明的变量的作用域
+	function test(){
+		a = 0
+	}
+	test()
+	console.log('a:'+a)
+
+	// 笔试题测试
+	console.log('---------------')
+	new (function(){
+		this.num = 1;
+		console.log(this.num);
+		(() => {
+			this.num = 2;
+			console.log(this.num);
+		})();
+		console.log(this.num);		
+	})()					//1	  2	  2
+	// console.log(num)		// num is not defined
+	
+	console.log('---------------')
+	var numFun = function(){
+		this.num = 1;
+		console.log(this.num);
+		(() => {
+			this.num = 2;
+			console.log(this.num);
+		})();
+		console.log(this.num);		
+	}
+	numFun();			// 1	2	2
+	console.log(num)	//	2
+
+	console.log('\n')
+	var i = 0;
+	for(i;i<5;i++){
+		window['alert'+i] = function(){
+			alert(i);
+		}
+	}
+	alert0();			// 5
+
+
+</script>
+</body>
+</html>

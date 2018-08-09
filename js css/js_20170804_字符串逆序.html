@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>JS字符串逆序</title>
+		<style type="text/css">
+			html,body{
+				width: 100%;
+				height: 100%;
+			    margin: 0;
+			}
+			.div1{
+				width: 100%;
+				height: 100%;
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<div class="div1">
+			<p>
+				<input type="text" id="old" value="abcdefg" />
+				<input type="button" value="charAt逆序" onclick="strReverse()" />
+				<input type="button" value="数组逆序" onclick="strReverse2()" />
+				<input type="button" value="递归逆序" onclick="digui()" />
+			</p>
+			
+		</div>
+
+	</body>
+	<script type="text/javascript">
+		var before = "abcdefghijk";
+		var strOut = '';
+		//字符串charAt方法
+		function strReverse(){
+			// var before = document.getElementById("old").value;
+			console.log(before);
+			var now = "";
+			if(before){
+				for(var i=before.length-1;i>=0;i--){
+					console.log(before.charAt(i));
+					now += before.charAt(i);
+				}
+				console.log(now);
+			}
+		}
+		//借助数组reverse方法
+		function strReverse2(){
+			console.log(before.split('').reverse().join(''));
+		}
+		//递归逆序
+		function digui(){
+			var a = '';
+			a = strReverse3(before,before.length-1,strOut);
+			console.log(a);
+		}
+		function strReverse3(strIn,pos,strOut){
+			if(pos < 0){
+				return strOut;
+			}
+			strOut += strIn.charAt(pos);
+			pos--;
+			strReverse3(strIn,pos,strOut);
+		}
+
+
+
+	</script>
+
+</html>

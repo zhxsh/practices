@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var a = []
+        for(var i=0;i<10;i++){
+            a[i] = function(){
+                console.log(i)
+            }    
+        }
+        console.log(i)
+
+        var b = []
+        for(let j=0;j<10;j++){
+            b[i] = function(){
+                console.log(j)
+            }    
+        }
+        // console.log(j)      //  Uncaught ReferenceError: j is not defined
+
+        for(var k=0;k<3;k++){
+            window.setTimeout(function(){
+                console.log(k)
+            },k)
+        }
+        console.log('k:'+k)     // 3    3 3 3
+
+        for(var l=0;l<3;l++){
+            window.setTimeout((function(l){
+                console.log(l)
+            })(l),l)                    // 0    1   2
+        }
+        console.log('l:'+l)
+
+        // 考察隐式类型转换，先调用 valueOf,再调用 toString，重写这两个方法
+        var c = {
+            i: 1,
+            toString: function(){
+                console.log('c.i:'+c.i)
+                return c.i++
+            }
+        }
+        if(c==1 && c==2 && c==3){
+            console.log('hello')
+        }
+
+        var log = console.log.bind(console)
+        log(123)
+
+    </script>
+</body>
+</html>

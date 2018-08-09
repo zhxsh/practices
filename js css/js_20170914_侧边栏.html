@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>侧边栏样式</title>
+	<script src="https://unpkg.com/vue"></script>
+	<style type="text/css">
+		#app{
+			width: 60%;
+			height: 80%;
+			margin: 10% auto;
+		}
+		.menu li:hover{
+			color: #FFF;
+		}
+		.menu-main{
+			width: 150px;
+			height: 40px;
+			background: #141F30;
+		    color: #7C97BF;
+		    list-style: none;
+		    line-height: 40px;
+    		padding-left: 20px;
+    		/*border: 1px solid #d9dadc;*/
+		}
+		.choose{
+			background: #060F1A;
+			color: #FFFFFF;
+		}
+		.menu-sub{
+
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<h2>{{message}}</h2>
+		<br>
+
+		<ul class="menu">
+			<li v-for="menu in menus" class="menu-main" :class="{choose:menu.value==mainIndex}" v-on:click="setMain(menu.value)">
+				{{menu.name}}
+				<!-- <ul v-for="item in menu.submenu"><li>{{item.name}}</li></ul> -->
+			</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		var app = new Vue({
+			el: "#app",
+			data: {
+				message: "侧边栏菜单",
+				mainIndex: 0,
+				menus: [{
+							name:"菜单1",
+							value:"1",
+							submenu:[
+							{
+								name:"子菜单1",
+								value:"101"
+							},
+							{
+								name:"子菜单2",
+								value:"101"
+							},
+							{
+								name:"子菜单3",
+								value:"101"
+							},
+							]
+						},
+						{
+							name:"菜单2",
+							value:"2",
+							submenu:[
+							{
+								name:"子菜单1",
+								value:"201"
+							},
+							{
+								name:"子菜单2",
+								value:"201"
+							},
+							{
+								name:"子菜单3",
+								value:"201"
+							},
+							]
+						},
+						{
+							name:"菜单3",
+							value:"3",
+							submenu:[
+							{
+								name:"子菜单1",
+								value:"301"
+							},
+							{
+								name:"子菜单2",
+								value:"301"
+							},
+							{
+								name:"子菜单3",
+								value:"301"
+							}
+							]
+						}
+					]
+			},
+			methods: {
+				setMain: function(value){
+					this.mainIndex = value;
+				}
+			}
+		})
+	</script>
+</body>
+</html>

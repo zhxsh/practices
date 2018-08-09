@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>touch事件</title>
+	<style type="text/css">
+		html,body,div{
+			width: 100%;
+			height: 100%;
+			background: gray;
+		}
+	</style>
+</head>
+<body>
+	<div id="test"></div>
+
+	<script type="text/javascript">
+		var test = document.querySelector("#test");
+		test.addEventListener('touchstart',function(event){
+			startX = event.touches[0].clientX;
+			startY = event.touches[0].clientY;
+			alert(startX+"  "+startY);
+		})
+	</script>
+</body>
+</html>

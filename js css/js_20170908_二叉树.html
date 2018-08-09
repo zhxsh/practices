@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>二叉树</title>
+</head>
+<body>
+	<label>gg:</label><input type="text" id="gg">&nbsp;&nbsp;&nbsp;<input type="button" value="获取id" onclick="testId()" /><br>
+	<input type="button" onclick="rec(5)" value="递归输出">
+
+<script type="text/javascript">
+	var tree = {
+		value: 4,
+		left: {
+			value: 3
+		},
+		right: {
+			value: 1,
+			left: {
+				value: 4
+			},
+			right: {
+				value: 5
+			}
+		}
+	};
+
+	var sum = 0;
+	//遍历入口
+	var traversal = function(node){
+		document.write("<br>tree:"+JSON.stringify(node));
+		document.write("<br>先序遍历二叉树：");
+		preOrder(node);
+		document.write("<br>中序遍历二叉树：");
+		inOrder(node);
+		document.write("<br>后序遍历二叉树：");
+		postOrder(node);
+		document.write("<br>"+"和："+sum+"<br>");
+	}
+
+	//深度优先
+	//先序遍历
+	var preOrder = function(node){
+		if(node){
+			sum += node.value;
+			document.write(node.value);
+			preOrder(node.left);
+			preOrder(node.right);
+		}
+	}
+	//中序遍历
+	var inOrder = function(node){
+		if(node){
+			inOrder(node.left);
+			document.write(node.value);
+			inOrder(node.right);
+		}
+	}
+	//后序遍历
+	var postOrder = function(node){
+		if(node){
+			postOrder(node.left);
+			postOrder(node.right);
+			document.write(node.value);
+		}
+	}
+
+	window.onload = traversal(tree);
+
+	var cite = {
+		left: {},
+		right: {},
+		value: ''
+	};
+
+	var nullTree = {};
+
+
+
+	//《算法与数据结构JavaScript描述》	https://segmentfault.com/a/1190000004010854
+	// 节点对象的构造函数
+	function Node(data, left, right) {
+	   this.data = data;
+	   this.left = left;
+	   this.right = right;
+	   this.show = show;
+	}
+
+	function show() {
+	   return this.data;
+	}
+	//二叉树的构造函数
+	function BST() {
+	   this.root = null;
+	   this.insert = insert;
+	   this.inOrder2 = inOrder2;
+	   
+	}
+	//插入方法
+	function insert(data) {
+	   var n = new Node(data, null, null);
+	   if (this.root == null) {
+	      this.root = n;
+	   }
+	   else {
+	      var current = this.root;
+	      var parent;
+	      while (true) {
+	         parent = current;
+	         if (data < current.data) {
+	            current = current.left;
+	            if (current == null) {
+	               parent.left = n;
+	               break;
+	            }
+	         }
+	         else {
+	            current = current.right;
+	            if (current == null) {
+	               parent.right = n;
+	               break;
+	            }
+	         }
+	      }
+	   }
+	}
+	//调用两次递归遍历二叉树
+	function inOrder2(node) {
+	   if (!(node == null)) {
+	      inOrder2(node.left);
+	      console.log(node.show() )
+	      inOrder2(node.right);
+	   }
+	}
+
+	//将以下数据导入二叉树
+	var nums = new BST();
+	nums.insert(23)
+	nums.insert(45)
+	nums.insert(16)
+	nums.insert(37)
+	nums.insert(3)
+	nums.insert(99)
+	nums.insert(22)
+	inOrder2(nums.root);
+
+	//递归输出
+	function rec(x){
+		if(x!==1){
+		   console.log(x)
+		   rec(x-1)
+		   console.log(x) 
+	    }   
+	}
+	//测试是否正常运行
+	var testId = function(){
+		var getId = document.getElemetById;			
+		getId("gg");						//Error: getId is not a function
+	}
+</script>
+</body>
+</html>
