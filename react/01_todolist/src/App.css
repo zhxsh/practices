@@ -1,0 +1,81 @@
+ul {
+  -webkit-margin: 0;
+  -webkit-padding-start: 0;
+}
+li {
+  list-style: none;
+}
+
+.App {
+  /* text-align: center; */
+  width: 230px;
+  padding: 10px;
+  border: 1px solid burlywood;
+  margin: 30px auto 0 auto;
+}
+
+.todoname {
+  border: none;
+  border-bottom: 1px solid #cdcdcd;
+  width: 200px;
+}
+.todoname:focus {
+  outline: none;
+}
+.add {
+  margin-left: 15px;
+  cursor: pointer;
+  font-size: 20px;
+}
+.tip {
+  text-align: right;
+  font-size: 10px;
+  color: #cdcdcd;
+}
+.list li {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.list li i {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border: 2px solid #cdcdcd;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.list li.done i {
+  background: #cdcdcd;
+  margin-right: 5px;
+  cursor: pointer;
+}
+.list li.done {
+  text-decoration: line-through;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
