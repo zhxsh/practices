@@ -1,0 +1,21 @@
+{
+    "data": [
+        {
+            "name": "梧桐山",
+            "stationId": "6",
+            "communityInfo": [
+                {
+                    "created": 1534757776000,
+                    "updated": 1534757779000,
+                    "id": 1,
+                    "name": "南园社区",
+                    "stationName": "云亭",
+                    "stationId": "6",
+                    "fullName": "丰台区大有村"
+                }
+            ]
+        }
+    ],
+    "code": 0,
+    "message": "获取信息成功"
+}
