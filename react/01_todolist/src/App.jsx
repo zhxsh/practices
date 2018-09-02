@@ -75,22 +75,20 @@ class App extends Component {
     })
     return (
       <form className="App" onSubmit={this.add}>
-        <div>
-          <input type="text" className="todoname" value={this.state.value} onChange={this.handleChange} />
-          <span className="add" title="add todo" onClick={this.add}>+</span>
-          <p className="tip">点击加号或者Enter添加</p>  
-        </div>
-        
-        <ul className="list">
-          {listItems}
+        <ul className="types">
+          <li>
+            <div>
+              <input type="text" className="todoname" value={this.state.value} onChange={this.handleChange} />
+              <span className="add" title="add todo" onClick={this.add}>+</span>
+              <p className="tip">点击加号或者Enter添加</p>  
+            </div>
+            
+            <ul className="list">
+              {listItems}
+            </ul>
+          </li>
         </ul>
-        {/* <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p> */}
+        
       </form>
     );
   }

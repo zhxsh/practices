@@ -13,6 +13,9 @@ li {
   border: 1px solid burlywood;
   margin: 30px auto 0 auto;
 }
+.types {
+  width: 100%;
+}
 
 .todoname {
   border: none;
