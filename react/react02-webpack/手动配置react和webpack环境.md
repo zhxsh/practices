@@ -11,6 +11,13 @@ npm install -D webpack webpack-dev-server
 ```
 
 新建 app.js 作为入口文件
+```javascript
+import React  from "react";
+import ReactDom from "react-dom";
+
+const ele = React.createElement('div',null,"Hello React");
+ReactDom.render(ele,document.querySelector("#root"));
+```
 
 添加webpack配置文件
 ```javscript
@@ -46,3 +53,38 @@ webpack-dev-server --open
 plugins: [new HtmlWebpackPlugin()]
 ```
 
+
+src 目录下新建views目录，新建 main.jsx,添加如下代码
+```javascript
+import React from 'react';
+
+export class main extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: 'john',
+            age: 18
+        }
+    }
+
+    render() {
+        return (
+            <div>
+                <h1>{this.state.name}</h1>
+            </div>
+        )
+    }
+}
+```
+
+在 app.js 中添加如下代码:
+```javascript
+import main from './src/views/main';
+ReactDom.render(<main />,document.querySelector("#root"));
+```
+
+运行 npm run start，发现报错，jsx需要使用babel-loader转换。
+
+```cmd
+npm install -D babel-loader @babel/core @babel/preset-env
+```
