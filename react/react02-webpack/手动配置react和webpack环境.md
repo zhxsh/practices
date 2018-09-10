@@ -1,4 +1,8 @@
+手动搭建react和webpack开发环境
+======
 
+2018/9/9
+------
 
 npm安装react和react-dom,react 0.1.x版本后两者分开
 ```cmd
@@ -88,3 +92,49 @@ ReactDom.render(<main />,document.querySelector("#root"));
 ```cmd
 npm install -D babel-loader @babel/core @babel/preset-env
 ```
+
+SyntaxError: react02-webpack\app.js: Unexpected token (8:16)
+
+只转换了js，没有转换成功jsx，需要添加 @babel/preset-react
+
+```cmd
+npm install -D @babel/preset-react
+```
+
+在 webpack.config.js 里面 module.exports 中添加如下配置：
+
+```javascript
+module: {
+    rules: [
+        {
+            test: /\.(js|jsx)$/,
+            exclude: /node_modules/,
+            use: {
+                loader: 'babel-loader',
+                options: {
+                    presets: ['@babel/preset-env','@babel/preset-react']
+                }
+            }
+        }
+    ]
+}
+```
+
+运行项目就可以了。
+
+使用 less
+------
+
+安装 less 
+
+```cmd
+
+```
+
+报错
+Unexpected token (1:0)
+You may need an appropriate loader to handle this file type.
+> .header {
+|   color: red;
+| }
+

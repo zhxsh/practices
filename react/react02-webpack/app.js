@@ -1,7 +1,7 @@
 import React  from "react";
 import ReactDom from "react-dom";
 
-import Main from './src/views/main';
+import Main from './src/views/main.jsx';
 
 const ele = React.createElement('div',null,"Hello React");
 
@@ -25,7 +25,7 @@ class Main2 extends React.Component {
 }
 
 
-ReactDom.render(<Main2 />,document.querySelector("#root"));
+ReactDom.render(<Main />,document.querySelector("#root"));
 // ReactDom.render(ele,document.querySelector("#root"));
 
 // document.querySelector("body").innerHTML = "123123";
