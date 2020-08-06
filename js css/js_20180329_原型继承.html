@@ -1,57 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>JS 继承</title>
 </head>
+
 <body>
-    
+
     <script type="text/javascript">
         var write = document.writeln.bind(document);
 
-        (function(){
+        (function () {
             // JS 高程6.3继承测试
             //6.3.1  非prototype方法是否继承
-            function SuperType(){
+            function SuperType() {
                 this.property = 1;
-                    this.getName = function(){
+                this.getName = function () {
                     return "tom"
                 }
             }
-            
-            SuperType.prototype.getSuperValue = function(){
+
+            SuperType.prototype.getSuperValue = function () {
                 return this.property;
             }
 
-            function SubType(){
+            function SubType() {
                 this.subproperty = 2;
             }
             SubType.prototype = new SuperType();
 
-            SubType.prototype.getSubValue = function(){
+            SubType.prototype.getSubValue = function () {
                 return this.subproperty;
             }
 
             var instance = new SubType();
             var instanceSuper = new SuperType();
-            
+
             write(instance.property);
             write(instance.getSuperValue());
             // write(instance.getName());          // is not a function  放在this里面可以
-            write(instanceSuper.getName())
+            write(instanceSuper.getName())          // is not a function
         })();
 
         //Xmind 笔试题
-        (function(){
-            function Parent(name){
+        (function () {
+            function Parent(name) {
                 this.name = name || "Houser";
             }
-            Parent.prototype.say = function(){
+            Parent.prototype.say = function () {
                 return this.name;
             }
 
-            function Child(name){
-                Parent.apply(this,arguments);
+            function Child(name) {
+                Parent.apply(this, arguments);
             }
             Child.prototype = new Parent();
 
@@ -62,9 +64,9 @@
             write(kid.say());       // Houser
         })();
 
-        var count = (function(){
+        var count = (function () {
             var num = 0;
-            return function(){
+            return function () {
                 return num += 1;
             };
         })();
@@ -75,4 +77,5 @@
 
     </script>
 </body>
+
 </html>
