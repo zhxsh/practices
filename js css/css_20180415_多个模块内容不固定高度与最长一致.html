@@ -1,47 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
+  <head>
+    <meta charset="UTF-8" />
+    <title>多个模块内容不固定高度与最长一致</title>
     <style type="text/css">
-        body{
-            background: #DDD;
-        }
-        .wrap-content{
-            width: 80%;
-            padding: 0 5px;
-            margin: 0 auto;
-            border: 1px solid red;
-            
-            overflow: hidden;
-        }
-        .sub-content{
-            width: 33%;
-            display: inline-block;
-            background: #FFF;
-            
-            vertical-align: top;            /*顶部对齐*/
+      body {
+        background: #ddd;
+      }
+      .wrap-content {
+        width: 80%;
+        padding: 0 5px;
+        margin: 0 auto;
+        border: 1px solid red;
 
-            padding-bottom: 2000px;
-            margin-bottom: -2000px;
-        }
+        overflow: hidden;
+      }
+      .sub-content {
+        width: 32%;
+        display: inline-block;
+        background: #fff;
+
+        vertical-align: top; /*顶部对齐*/
+
+        padding-bottom: 2000px;
+        margin-bottom: -2000px;
+        border: 1px solid blue;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="wrap-content">
-        <div class="sub-content">
-            <img src="images/tulips2.jpg">
-            <p>这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容</p>
-        </div>
-        <div class="sub-content">
-            <img src="images/tulips2.jpg">
-            <p>这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容</p>
-        </div>
-        <div class="sub-content">
-            <img src="images/tulips2.jpg">
-            <p>这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容</p>
-        </div>
+      <div class="sub-content">
+        <img src="images/tulips2.jpg" />
+        <p>
+          这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容
+        </p>
+      </div>
+      <div class="sub-content">
+        <img src="images/tulips2.jpg" />
+        <p>
+          这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容
+        </p>
+      </div>
+      <div class="sub-content">
+        <img src="images/tulips2.jpg" />
+        <p>
+          这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容，这是一些内容
+        </p>
+      </div>
     </div>
-    
-</body>
+  </body>
 </html>

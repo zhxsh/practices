@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>bfc margin</title>
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+      }
+      .wrap {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .circle {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: #ff00007f;
+      }
+      img {
+        width: 200px;
+        height: 200px;
+      }
+
+      #logo {
+        filter: grayscale(1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="circle"></div>
+      <!-- <img src="./icon.png" alt="" id="logoImg" /> -->
+      <canvas id="logo"></canvas>
+    </div>
+
+    <script>
+      // window.onload = function () {
+      let c = document.getElementById("logo");
+      let ctx = c.getContext("2d");
+
+      // let img = document.getElementById("logoImg");
+      // console.log(c, ctx, img);
+      // ctx.drawImage(img, 300, 300);
+
+      var img = new Image(); // 创建一个<img>元素
+      img.onload = function () {
+        ctx.drawImage(img, 0, 0, 50, 50); //绘制图片
+      };
+      img.src = "icon.png"; // 设置图片源地址
+      // };
+    </script>
+  </body>
+</html>

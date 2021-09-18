@@ -1,54 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>display:inline-block;的元素之间还是有间隔</title>
     <style>
-        *{
-            margin: 0;
-            padding: 0;
-        }
-        .box-wrap{
-            width: 100px;
-            padding: 10px;
-            background-color: gray;
-            
-        }
-        .box{
-            width: 50%;
-            display: inline-block;
-            height: 50px;
-        }
-        .box1{
-            background-color: green; 
-        }
-        .box2{
-            background-color: red;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box-wrap {
+        width: 100px;
+        padding: 10px;
+        background-color: gray;
+      }
+      .box {
+        width: 50%;
+        display: inline-block;
+        height: 50px;
+      }
+      .box1 {
+        background-color: green;
+      }
+      .box2 {
+        background-color: red;
+      }
 
-        .wrap{
-            width: 100px;
-            background-color: gray;
-        }
-        .box3{
-            padding-bottom: 80%;
-        }
+      .wrap {
+        width: 100px;
+        background-color: gray;
+      }
+      .box3 {
+        padding-bottom: 80%;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="box-wrap">
-        <div class="box box1"></div>
-        <div class="box box2"></div>
-        <!-- display:inline-block;的元素之间还是有间隔，原因是div标签之间的空格造成的，或者父元素设置
+      <div class="box box1"></div>
+      <div class="box box2"></div>
+      <!-- display:inline-block;的元素之间还是有间隔，原因是div标签之间的空格造成的，或者父元素设置
         display: inline-table;或display: table;消除间隔 -->
     </div>
 
-    <br><br>
+    <br /><br />
     <div class="wrap">
-        <div class="box3"></div>
-        <!-- padding的值为百分比时，相对于父元素的宽度 -->
+      <div class="box3"></div>
+      <!-- padding的值为百分比时，相对于父元素的宽度 -->
     </div>
-</body>
+  </body>
 </html>

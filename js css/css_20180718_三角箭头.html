@@ -1,70 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>三角箭头</title>
     <style>
-        .container{
-            width: 200px;
-            height: 200px;
-            margin: 40px auto 0 auto;
-            padding: 10px;
-            border: 1px solid #cdcdcd;
-        }
-        .triangle{
-            width: 0;
-            height: 0;
-            border-width: 20px;
-            border-style: solid;
-            border-color: #cdcdcd transparent transparent transparent;
-        }
-        .arrow{
-            position: relative;
-            width: 0;
-            height: 0;
-            border-width: 20px;
-            border-style: solid;
-            border-color: #cdcdcd transparent transparent transparent;
-        }
-        .arrow:after{
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: -18px;
-            width: 0;
-            height: 0;
-            border: 18px solid transparent;
-            border-top-color: white;
-        }
-        .arrow2{
-            content: '';
-            top: 0px;
-            left: 0;
-            width: 0;
-            height: 0;
-            border: 15px solid transparent;
-            border-top-color: red;
-        }
+      .container {
+        width: 200px;
+        height: 200px;
+        margin: 40px auto 0 auto;
+        padding: 10px;
+        border: 1px solid #cdcdcd;
+      }
+      .triangle {
+        width: 0;
+        height: 0;
+        border-width: 20px;
+        border-style: solid;
+        border-color: #cdcdcd transparent transparent transparent;
+      }
+      .arrow {
+        position: relative;
+        width: 0;
+        height: 0;
+        border-width: 20px;
+        border-style: solid;
+        border-color: #cdcdcd transparent transparent transparent;
+      }
+      .arrow:after {
+        content: "";
+        position: absolute;
+        top: -20px;
+        left: -18px;
+        width: 0;
+        height: 0;
+        border: 18px solid transparent;
+        border-top-color: white;
+      }
+      .arrow2 {
+        content: "";
+        top: 0px;
+        left: 0;
+        width: 0;
+        height: 0;
+        border: 15px solid transparent;
+        border-top-color: red;
+      }
 
-        .arrow3 {
-            content: '';
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 0;
-            border: 5px solid transparent;
-            border-left-color: #cdcdcd;
-        }
+      .arrow3 {
+        content: "";
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        border: 5px solid transparent;
+        border-left-color: #cdcdcd;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <div class="triangle"></div>
-        <div class="arrow"></div>
-        <div class="arrow2"></div>
-        <div class="arrow3"></div>
+      <div class="triangle"></div>
+      <div class="arrow"></div>
+      <div class="arrow2"></div>
+      <div class="arrow3"></div>
     </div>
-</body>
+  </body>
 </html>

@@ -1,78 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
+  <head>
+    <meta charset="UTF-8" />
+    <title>元素垂直水平居中</title>
     <style type="text/css">
-        html,body{
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-        .main-base {
-            width: 90%;
-            height: 200px;
-            border: 1px dotted blue;
-        }
-        .div-base{
-            width: 100px;
-            height: 60px;
-            background: #AAA;
-            text-align: center;
-        }
-        
-        .main0{
-            position: relative;
-        }
-        .div0{
-            position: absolute;
-            transform: translate(-50%,-50%);
-            left: 50%;
-            top: 50%;
-        }
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .main-base {
+        width: 90%;
+        height: 200px;
+        border: 1px dotted blue;
+      }
+      .div-base {
+        width: 100px;
+        height: 60px;
+        background: #aaa;
+        text-align: center;
+      }
 
+      .main0 {
+        position: relative;
+      }
+      .div0 {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+      }
 
-        .main1{
-            display: flex; 
-            justify-content: center;
-            align-items: center;
-        }
-        .div1{
-            
-        }
+      .main1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .div1 {
+      }
 
-        
-        .main2 {
-            display: table-cell;
-            text-align: center;
-            vertical-align: middle;
-        }
-        .div2 {
-            display: inline-block;
-            vertical-align: middle;
-        }
-        
-
+      .main2 {
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+      }
+      .div2 {
+        display: inline-block;
+        vertical-align: middle;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="main-base main0">
-        <div class="div-base div0">
-            <h2>垂直居中0</h2>
-        </div>
+      <div class="div-base div0">
+        <h2>垂直居中0</h2>
+      </div>
     </div>
 
     <div class="main-base main1">
-        <div class="div-base div1">
-            <h2>垂直居中1</h2>
-        </div>
+      <div class="div-base div1">
+        <h2>垂直居中1</h2>
+      </div>
     </div>
 
     <div class="main-base main2">
-        <div class="div-base div2">
-            <h2>垂直居中2</h2>
-        </div>
+      <div class="div-base div2">
+        <h2>垂直居中2</h2>
+      </div>
     </div>
-</body>
+  </body>
 </html>

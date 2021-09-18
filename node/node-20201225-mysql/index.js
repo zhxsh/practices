@@ -1,11 +1,11 @@
 var mysql = require('mysql');
 
 var connection = mysql.createConnection({
-    host: '',
-    port: '',
+    host: '192.168.13.71',
+    port: '32000',
     user: 'root',
-    password: '',
-    database: '',
+    password: 'introcks1234',
+    database: 'ifaas_community_sec',
 });
 
 connection.connect();
